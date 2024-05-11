@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/yousef/autonomous_mobile_robot/catkin_ws/install/setup.sh

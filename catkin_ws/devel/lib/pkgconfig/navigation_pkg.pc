@@ -1,0 +1,8 @@
+prefix=/home/yousef/autonomous_mobile_robot/catkin_ws/devel
+
+Name: navigation_pkg
+Description: Description of navigation_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

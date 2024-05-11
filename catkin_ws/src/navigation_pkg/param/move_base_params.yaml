@@ -1,0 +1,22 @@
+shutdown_costmaps: false
+
+controller_frequency: 20
+controller_patience: 15
+
+
+planner_frequency: 0.0
+planner_patience: 5
+
+oscillation_timeout: 0.0
+oscillation_distance: 0.5
+
+max_planning_retries: -1
+
+recovery_behavior_enabled: true
+clearing_rotation_allowed: true
+conservative_reset_dist : 3
+
+# local planner - default is trajectory rollout
+base_local_planner: "dwa_local_planner/DWAPlannerROS"
+
+base_global_planner: "global_planner/GlobalPlanner" #"navfn/NavfnROS" #alternatives: global_planner/GlobalPlanner, carrot_planner/CarrotPlanner
