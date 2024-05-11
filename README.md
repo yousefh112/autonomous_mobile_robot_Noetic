@@ -41,11 +41,11 @@ Welcome to the Autonomous Mobile Robot Navigation repository! This repository co
 4. **Launch Navigation Stack:**
    - For AMCL localization:
      ```bash
-     roslaunch navigation_package amcl.launch
+     roslaunch navigation_pkg amcl.launch
      ```
    - For GMapping SLAM:
      ```bash
-     roslaunch navigation_package gmapping.launch
+     roslaunch navigation_pkg gmapping.launch
      ```
 
 5. **Send Navigation Goal:**
