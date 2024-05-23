@@ -3,7 +3,7 @@
 
   <!-- Arguments -->
   <arg name="odom_frame_id"   default="odom" />
-  <arg name="base_frame_id"   default="chassis_link" />
+  <arg name="base_frame_id"   default="base_link" />
   <arg name="global_frame_id" default="map" />
   <arg name="cmd_vel_topic"   default="cmd_vel" />
   <arg name="odom_topic"      default="odom" />

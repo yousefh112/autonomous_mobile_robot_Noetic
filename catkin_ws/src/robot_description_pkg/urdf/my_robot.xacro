@@ -4,16 +4,18 @@
     <xacro:include filename="$(find robot_description_pkg)/urdf/material.xacro" />
     <xacro:include filename="$(find robot_description_pkg)/urdf/gazebo_plugins.gazebo" />
 
-    <!-- This is odom -->
-    <link name="odom"></link>
+    <!-- This is the base link  -->
+    <link name="base_link"/>
 
-    <joint name="odom_joint" type="fixed">
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <parent link="odom" />
-        <child link="chassis_link" />
+    <joint name="chassis_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="chassis_link"/>
+        <axis xyz="0.0 0.0 0.0"/>
     </joint>
 
-    <!-- This is the chassis -->
+    <!-- This is the chassis link  -->
+
     <link name="chassis_link">
         <inertial>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />

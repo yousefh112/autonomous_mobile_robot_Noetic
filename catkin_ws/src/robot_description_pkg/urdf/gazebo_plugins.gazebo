@@ -10,7 +10,7 @@
             <rightRearJoint>wheel1_joint</rightRearJoint>
             <wheelSeparation>0.7</wheelSeparation>
             <wheelDiameter>0.15</wheelDiameter>
-            <robotBaseFrame>chassis_link</robotBaseFrame>
+            <robotBaseFrame>base_link</robotBaseFrame>
             <torque>1.2</torque>
             <topicName>cmd_vel</topicName>
             <odometryTopic>odom</odometryTopic>

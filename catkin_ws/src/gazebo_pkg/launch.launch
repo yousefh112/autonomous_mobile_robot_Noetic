@@ -4,60 +4,52 @@
     <!-- custom gazebo arguements-->
     <arg name="world" default="empty" />
     <arg name="paused" default="false" />
-    <arg
-        name="use_sim_time" default="true" />
+    <arg name="use_sim_time" default="true" />
     <arg name="gui" default="true" />
-    <arg name="headless"
-        default="false" />
+    <arg name="headless" default="false" />
     <arg name="debug" default="false" />
+    <arg name="gui_required" default="true" />
+
 
     <!--World
     File-->
-    <arg name="world_name"
-        value="$(find robot_description_pkg)/worlds/world.world" />
-
-    <include
-        file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find robot_description_pkg)/worlds/world.world" />
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="world_name" value="$(arg world_name)" />
         <arg name="paused" value="$(arg paused)" />
         <arg name="use_sim_time" value="$(arg use_sim_time)" />
         <arg name="gui" value="$(arg gui)" />
         <arg name="headless" value="$(arg headless)" />
         <arg name="debug" value="$(arg debug)" />
+        <arg name="verbose" default="true" />
     </include>
 
-    <!-- Find my robot Description-->
-    <param name="robot_description"
-        command="$(find xacro)/xacro --inorder '$(find robot_description_pkg)/urdf/my_robot.xacro'" />
 
-    <node
-        name="FourWheeledRobot_spawn" pkg="gazebo_ros" type="spawn_model" respawn="false"
-        output="screen"
-        args="-urdf -param robot_description -model FourWheeledRobot" />
+    <!-- Find my robot Description-->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find robot_description_pkg)/urdf/my_robot.xacro'" />
+
+    <!-- Spawn my robot -->
+    <node name="FourWheeledRobot_spawn" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -param robot_description -model FourWheeledRobot" />
 
     <!-- Start RViz -->
     <arg name="open_rviz" default="true" />
     <group if="$(arg open_rviz)">
-        <node pkg="rviz" type="rviz" name="rviz" required="true"
-            args="-d $(find navigation_pkg)/rviz/nav.rviz" />
+        <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find navigation_pkg)/rviz/nav.rviz" />
     </group>
 
     <!-- Send fake joint Values -->
-    <node name="joint_state_publisher" pkg="joint_state_publisher"
-        type="joint_state_publisher">
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
         <param name="use_gui" value="false" />
     </node>
 
     <!-- send robot states to tf  -->
-    <node name="robot_state_publisher"
-        pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen" />
 
     <!-- mapping-->
-    <!--include
-        file="$(find navigation_pkg)/launch/gmapping.launch" /> -->
+    <!--<include file="$(find navigation_pkg)/launch/gmapping.launch" /> -->
 
-    <include
-        file="$(find navigation_pkg)/launch/navigation.launch" />
+    <!-- navigation-->
+    <!-- <include file="$(find navigation_pkg)/launch/navigation.launch" /> -->
 
 
 </launch>

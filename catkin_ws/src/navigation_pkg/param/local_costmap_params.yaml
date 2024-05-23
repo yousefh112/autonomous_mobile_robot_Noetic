@@ -1,19 +1,19 @@
 local_costmap:
   #We'll publish the voxel grid used by this costmap
-  publish_voxel_map: true
+  publish_voxel_map: false
 
   #Set the global and robot frames for the costmap
   global_frame: odom
-  robot_base_frame: chassis_link
+  robot_base_frame: base_link
 
   #Set the update and publish frequency of the costmap
-  update_frequency: 5.0
-  publish_frequency: 2.0
-  transform_tolerance: 0.5  
+  update_frequency: 20.0
+  publish_frequency: 20.0
+  transform_tolerance: 1.0
   
 
   #We'll configure this costmap to be a rolling window... meaning it is always
-  #centered at the robot
+  #centered at the robot's position
   static_map: false
   rolling_window: true
   width: 3.0
@@ -21,8 +21,8 @@ local_costmap:
   resolution: 0.05
   
   plugins:
-    - {name: laser_layer,         type: "costmap_2d::ObstacleLayer"} 
-    - {name: inflation_layer,     type: "costmap_2d::InflationLayer"}   
+     - {name: laser_layer,             type: "costmap_2d::ObstacleLayer"} #laser use on walls and objects
 
+     - {name: inflation_layer,         type: "costmap_2d::InflationLayer"} #inflation layer
     
    
