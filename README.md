@@ -64,14 +64,15 @@ The path planning module in this repository utilizes the A* algorithm for genera
 - **Localization Algorithm:** AMCL (Adaptive Monte Carlo Localization) is used for accurately estimating the robot's pose (position and orientation) within the map.
 - **Mapping Algorithm:** GMapping is employed for building a map of the environment by incrementally updating the robot's pose and surroundings based on sensor data.
 
-### The Robot Design 
+### The Robot Design:
 ![alt text](4wd_design.png)
 
-### The Freme Tree
+### The Freme Tree:
 ![alt text](frames.png)
 
-### Video Of the full Project
- 
+### Video Of the full Project:
+https://www.youtube.com/watch?v=x-95AC7PFDQ
+
 ### Issues and Contributions:
 
 If you encounter any issues or have suggestions for improvements, please feel free to open an issue or create a pull request on GitHub. Your contributions are highly appreciated and will help improve the functionality and usability of this autonomous mobile robot navigation system.
